@@ -1,0 +1,55 @@
+@mixin flex(
+  $item: stretch,
+  $content: flex-start,
+  $direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  align-items: $item;
+  justify-content: $content;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+@mixin scroll-x($scroll: "true", $width: 75%, $gap: 2.5rem, $padding: 1rem) {
+  /* chỉnh sang ngang */
+  grid-auto-columns: $width; /* mỗi cột chiếm 80% */
+  grid-auto-flow: column;
+  overflow-x: auto;
+  grid-template-columns: unset;
+  grid-column-gap: $gap;
+  padding: $padding;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  @if $scroll == "true" {
+    &::-webkit-scrollbar {
+      /* ẩn thanh scroll */
+      display: none;
+    }
+  }
+  @if $scroll == "false" {
+    /* css scroll */
+    &::-webkit-scrollbar {
+      /* độ rộng scroll */
+      height: 0.6rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      /* thanh ngoài */
+      background-color: $gray-dark-color;
+      border-radius: 2rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      /* thanh scroll */
+      background-color: $red-color;
+      border-radius: 2rem;
+    }
+  }
+  /* hiệu ứng scroll */
+  scroll-snap-type: x mandatory;
+  scroll-snap-stop: always;
+  & > * {
+    /* trỏ tới con trực tiếp */
+    scroll-snap-align: center;
+  }
+}
