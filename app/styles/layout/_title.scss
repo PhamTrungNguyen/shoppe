@@ -72,10 +72,10 @@
     }
 
     &-small {
-        display:grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 0 0.5rem;
-        &_image  {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      &_image {
+        max-width: 38.5rem;
         object-fit: cover;
       }
     }

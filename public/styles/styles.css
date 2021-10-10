@@ -202,7 +202,7 @@ button {
     .footer-center-search-list {
       padding-bottom: 1rem; }
     .footer-center input {
-      width: 50rem;
+      width: 52rem;
       height: 3rem; }
     .footer-center-search-item {
       padding: 0.6rem 1.5em; } }
@@ -311,8 +311,8 @@ button {
         object-fit: cover; }
     .title-small {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 0 0.5rem; }
+      grid-template-columns: repeat(2, 1fr); }
       .title-small_image {
+        max-width: 38.5rem;
         -o-object-fit: cover;
         object-fit: cover; } }
